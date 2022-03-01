@@ -53,7 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         authenticationFilter.setFilterProcessesUrl(environment.getProperty("login.url.path"));
         authenticationFilter.setAuthenticationManager(authenticationManager());
 
-        // to handle the login
+        // to handle the login, without the below line it throws 404 error
         authenticationFilter.setAuthenticationSuccessHandler(
                 (request, response, authentication) -> response.setStatus(HttpStatus.OK.value()));
         return authenticationFilter;

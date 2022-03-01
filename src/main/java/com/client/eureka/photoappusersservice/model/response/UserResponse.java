@@ -1,4 +1,4 @@
-package com.client.eureka.photoappusersservice.response;
+package com.client.eureka.photoappusersservice.model.response;
 
 import lombok.Getter;
 import lombok.Setter;

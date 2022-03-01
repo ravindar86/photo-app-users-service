@@ -1,12 +1,11 @@
 package com.client.eureka.photoappusersservice.service.impl;
 
-import com.client.eureka.photoappusersservice.dto.UserDto;
-import com.client.eureka.photoappusersservice.entity.UserEntity;
+import com.client.eureka.photoappusersservice.model.dto.UserDto;
+import com.client.eureka.photoappusersservice.model.entity.UserEntity;
 import com.client.eureka.photoappusersservice.repository.UserRepository;
 import com.client.eureka.photoappusersservice.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
-import org.modelmapper.spi.MatchingStrategy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

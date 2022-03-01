@@ -1,11 +1,9 @@
 package com.client.eureka.photoappusersservice.controller;
 
-import com.client.eureka.photoappusersservice.dto.UserDto;
-import com.client.eureka.photoappusersservice.entity.UserEntity;
-import com.client.eureka.photoappusersservice.request.UserRequest;
-import com.client.eureka.photoappusersservice.response.UserResponse;
+import com.client.eureka.photoappusersservice.model.dto.UserDto;
+import com.client.eureka.photoappusersservice.model.request.UserRequest;
+import com.client.eureka.photoappusersservice.model.response.UserResponse;
 import com.client.eureka.photoappusersservice.service.UserService;
-import com.client.eureka.photoappusersservice.utils.PasswordEncryption;
 import org.modelmapper.ModelMapper;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;

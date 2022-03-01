@@ -1,4 +1,4 @@
-package com.client.eureka.photoappusersservice.dto;
+package com.client.eureka.photoappusersservice.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;

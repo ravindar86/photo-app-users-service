@@ -1,7 +1,6 @@
 package com.client.eureka.photoappusersservice.service;
 
-import com.client.eureka.photoappusersservice.dto.UserDto;
-import org.springframework.security.core.userdetails.UserDetails;
+import com.client.eureka.photoappusersservice.model.dto.UserDto;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface UserService extends UserDetailsService {

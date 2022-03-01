@@ -1,4 +1,4 @@
-package com.client.eureka.photoappusersservice.entity;
+package com.client.eureka.photoappusersservice.model.entity;
 
 import lombok.Getter;
 import lombok.Setter;

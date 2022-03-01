@@ -1,7 +1,7 @@
 package com.client.eureka.photoappusersservice.config;
 
-import com.client.eureka.photoappusersservice.dto.UserDto;
-import com.client.eureka.photoappusersservice.request.UserLoginRequest;
+import com.client.eureka.photoappusersservice.model.dto.UserDto;
+import com.client.eureka.photoappusersservice.model.request.UserLoginRequest;
 import com.client.eureka.photoappusersservice.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;
@@ -14,7 +14,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -57,8 +56,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     protected void successfulAuthentication(HttpServletRequest request,
                                             HttpServletResponse response,
                                             FilterChain chain,
-                                            Authentication authResult)
-            throws IOException, ServletException {
+                                            Authentication authResult) {
 
         String userName = ((User)authResult.getPrincipal()).getUsername();
         UserDto userDto = userService.getUserDetailsByEmail(userName);
