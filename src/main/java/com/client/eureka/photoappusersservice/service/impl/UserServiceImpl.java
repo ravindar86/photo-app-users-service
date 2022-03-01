@@ -7,8 +7,12 @@ import com.client.eureka.photoappusersservice.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.modelmapper.spi.MatchingStrategy;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 @Service
@@ -30,5 +34,18 @@ public class UserServiceImpl implements UserService {
         userRepository.save(entity);
 
         return mapper.map(entity, UserDto.class);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        UserEntity userEntity = userRepository.findByEmail(username);
+
+        if(userEntity==null) {
+            throw new UsernameNotFoundException(username);
+        }
+        System.out.println(userEntity.getUserId());
+        return new User(userEntity.getEmail(), userEntity.getEncryptedPassword(),
+                true, true, true, true,
+                new ArrayList<>());
     }
 }
