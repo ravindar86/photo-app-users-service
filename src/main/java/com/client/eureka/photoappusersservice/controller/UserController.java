@@ -30,7 +30,7 @@ public class UserController {
     @GetMapping("/status")
     public String statusCheck(){
         System.out.println("Reached port -> "+env.getProperty("local.server.port"));
-        return "User Service Running.."+env.getProperty("local.server.port");
+        return "User Service Running.."+env.getProperty("local.server.port")+" token -> "+env.getProperty("token.secret.key");
     }
 
     @PostMapping("/status")
