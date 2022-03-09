@@ -1,3 +1,4 @@
 {
-  "token.secret.key" : "qwerty"
+  "spring.datasource.username" : "root",
+  "spring.datasource.password" : "{cipher}4ba9d39068fccc3e5bcd461003f35c38e7e54bf987e39cec1b6725a4fa5a0a2c"
 }
