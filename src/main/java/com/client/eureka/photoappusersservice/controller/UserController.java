@@ -3,10 +3,12 @@ package com.client.eureka.photoappusersservice.controller;
 import com.client.eureka.photoappusersservice.model.dto.UserDto;
 import com.client.eureka.photoappusersservice.model.request.UserRequest;
 import com.client.eureka.photoappusersservice.model.response.UserResponse;
+import com.client.eureka.photoappusersservice.model.response.UserResponseModel;
 import com.client.eureka.photoappusersservice.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -33,11 +35,6 @@ public class UserController {
         return "User Service Running.."+env.getProperty("local.server.port")+" token -> "+env.getProperty("token.secret.key");
     }
 
-    @PostMapping("/status")
-    public String postCheck() {
-        return "Post check..";
-    }
-
     @PostMapping
     public ResponseEntity<UserResponse> createUser(@Valid @RequestBody UserRequest userRequest){
 
@@ -51,5 +48,14 @@ public class UserController {
         userResponse = mapper.map(createdUser, UserResponse.class);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(userResponse);
+    }
+
+    @GetMapping(value="/{userId}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public ResponseEntity<UserResponseModel> getUser(@PathVariable String userId) {
+
+        UserDto userDto = userService.getUserByUserId(userId);
+        UserResponseModel returnValue = new ModelMapper().map(userDto, UserResponseModel.class);
+
+        return ResponseEntity.status(HttpStatus.OK).body(returnValue);
     }
 }
