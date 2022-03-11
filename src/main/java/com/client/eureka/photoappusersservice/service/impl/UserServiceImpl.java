@@ -83,12 +83,12 @@ public class UserServiceImpl implements UserService {
            */
 
         // calling album microservice using feign client
-        try {
+       // try {
             List<AlbumResponseModel> albumsList = feignClient.getAlbums(userId);
             userDto.setAlbums(albumsList);
-        } catch(FeignException ex) {
-            logger.error(ex.getLocalizedMessage());
-        }
+        //} catch(FeignException ex) {
+          //  logger.error(ex.getLocalizedMessage());
+        //}
 
         return userDto;
     }
